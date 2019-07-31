@@ -70,7 +70,9 @@ body {
     color: #000000;
     background: #FFFFFF;
     width: 25%;
-    height: 25%;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
 }
 
 .chatLog {
