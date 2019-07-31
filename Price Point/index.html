@@ -38,6 +38,8 @@
 
                 // Create a function that the hub can call to broadcast messages.
                 player.client.broadcastMessage = function (name, message) {
+                    console.log("Incomming Message...");
+
                     // Html encode display name and message.
                     var encodedName = $('<div />').text(name).html();
                     var encodedMsg = $('<div />').text(message).html();
@@ -49,13 +51,14 @@
                 player.client.processJoin = function (name) {
                     //Encode player name
                     var encodedName = $('<div />').text(name).html();
-
+                    console.log("player joining...");
                     //Append to lobby list
                     $('#lobby').append('<li>' + encodedName + '</li>');
                 };
 
                 // Get the user name and store it to prepend to messages.
                 $('#displayname').val(prompt('Enter your name:', ''));
+                //player.server.processJoin($('#displayname'));
                 // Set initial focus to message input box.
                 $('#message').focus();
                 // Start the connection.
