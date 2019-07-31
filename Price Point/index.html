@@ -14,7 +14,7 @@
         </div>
         <div class="content">
             <div class="chat">
-                <div class="chatLog">
+                <div class="chatLog" id="log">
                     <ul id="discussion">
                     </ul>
                 </div>
@@ -51,6 +51,12 @@
                     $('#sendmessage').click(function () {
                         // Call the Send method on the hub.
                         chat.server.send($('#displayname').val(), $('#message').val());
+
+                        window.setInterval(function() {
+                            var elem = document.getElementById('log');
+                            elem.scrollTop = elem.scrollHeight;
+                        }, 5000);
+
                         // Clear text box and reset focus for next comment.
                         $('#message').val('').focus();
                     });
