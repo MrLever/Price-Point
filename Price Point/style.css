@@ -55,8 +55,8 @@ table {
 /* END CSS RESET */
 
 body {
-    /*background: #000000;
-    color: #FFFFFF;*/
+    background: #000000;
+    color: #FFFFFF;
 }
 
 .titlebar {
@@ -64,4 +64,18 @@ body {
     font-family: 'Lobster', cursive;
     font-size: 48pt;
     letter-spacing: 3px;
+}
+
+.chat {
+    color: #000000;
+    background: #FFFFFF;
+    width: 25%;
+    height: 25%;
+}
+
+.chatLog {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    word-break: break-all;
 }
