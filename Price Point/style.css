@@ -41,11 +41,11 @@ blockquote, q {
     quotes: none;
 }
 
-    blockquote:before, blockquote:after,
-    q:before, q:after {
-        content: '';
-        content: none;
-    }
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
 
 table {
     border-collapse: collapse;
@@ -55,8 +55,8 @@ table {
 /* END CSS RESET */
 
 body {
-    background: #000000;
-    color: #FFFFFF;
+    /*background: #000000;
+    color: #FFFFFF;*/
 }
 
 .titlebar {

@@ -11,5 +11,9 @@ namespace Price_Point
 		public void Hello() {
 			Clients.All.hello();
 		}
+
+		public void Send(string name, string message) {
+			Clients.All.broadcastMessage(name, message);
+		}
 	}
 }
