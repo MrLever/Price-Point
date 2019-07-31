@@ -15,5 +15,9 @@ namespace Price_Point
 		public void Send(string name, string message) {
 			Clients.All.broadcastMessage(name, message);
 		}
+
+		public void Join(string name) {
+			Clients.All.processJoin(name);
+		}
 	}
 }

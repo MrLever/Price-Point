@@ -81,3 +81,16 @@ body {
     overflow-y: scroll;
     word-break: break-all;
 }
+
+.lobbyList {
+    position: absolute;
+    bottom: 100px;
+    right: 0px;
+    height: 150px;
+    width: 25%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    word-break: break-all;
+    background: #808080;
+    color: #000;
+}

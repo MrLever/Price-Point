@@ -25,21 +25,33 @@
                     <input type="hidden" id="displayname" />
                 </div>
             </div>
+            <div class="lobbyList">
+                <ul id="lobby">
+                </ul>
+            </div>
         </div>
 
         <script type="text/javascript">
             $(function () {
                 // Declare a proxy to reference the hub.
-                var chat = $.connection.pricePointHub;
+                var player = $.connection.pricePointHub;
 
                 // Create a function that the hub can call to broadcast messages.
-                chat.client.broadcastMessage = function (name, message) {
+                player.client.broadcastMessage = function (name, message) {
                     // Html encode display name and message.
                     var encodedName = $('<div />').text(name).html();
                     var encodedMsg = $('<div />').text(message).html();
                     // Add the message to the page.
                     $('#discussion').append('<li><strong>' + encodedName
                         + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+                };
+
+                player.client.processJoin = function (name) {
+                    //Encode player name
+                    var encodedName = $('<div />').text(name).html();
+
+                    //Append to lobby list
+                    $('#lobby').append('<li>' + encodedName + '</li>');
                 };
 
                 // Get the user name and store it to prepend to messages.
@@ -50,7 +62,7 @@
                 $.connection.hub.start().done(function () {
                     $('#sendmessage').click(function () {
                         // Call the Send method on the hub.
-                        chat.server.send($('#displayname').val(), $('#message').val());
+                        player.server.send($('#displayname').val(), $('#message').val());
 
                         window.setInterval(function() {
                             var elem = document.getElementById('log');
