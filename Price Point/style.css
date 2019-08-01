@@ -97,7 +97,7 @@ body {
 
 .gameBanner {
     display: block;
-    height: 25%;
+    height: 5vh;
     text-align: center;
     font-family: 'Oswald', sans-serif;
 }
@@ -106,6 +106,35 @@ body {
     font-size: 24pt;
 }
 
+.forSaleBox {
+    display: block;
+    width: 60vw;
+    margin: auto;
+    height: 55vh;
+    background: #808080;
+}
+
+#fixerControls {
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+}
+
+#fixerControls h3 {
+    font-size: 14pt;
+    padding: 5px;
+}
+
+#fixerControls h4 {
+    font-size: 12pt;
+    padding: 5px;
+}
+
+.forSaleBox h2 {
+    color: #FFF;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24pt;
+    text-align: center;
+}
 
 @media screen (max-width: 700px) {
     .chat {
