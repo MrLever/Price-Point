@@ -5,11 +5,10 @@ using System.Web;
 using Microsoft.AspNet.SignalR;
 using Newtonsoft.Json;
 
-namespace Price_Point
-{
-	public class PricePointHub : Hub
-	{
-		private static List<Client> Players = new List<Client>(); 
+namespace Price_Point {
+	public class PricePointHub : Hub {
+		private static PricePointGame Game = new PricePointGame();
+
 		public PricePointHub() : base() {
 
 		}
@@ -25,8 +24,8 @@ namespace Price_Point
 		public void Join(string name) {
 			Clients.All.prepJoin();
 
-			Players.Add(new Client(name));
-			foreach (var player in Players) {
+			Game.Players.Add(new Client(name));
+			foreach (var player in Game.Players) {
 				Clients.All.processJoin(player.Name);
 			}
 			
