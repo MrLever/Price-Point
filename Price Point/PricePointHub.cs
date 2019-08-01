@@ -23,8 +23,13 @@ namespace Price_Point
 		}
 
 		public void Join(string name) {
+			Clients.All.prepJoin();
+
 			Players.Add(new Client(name));
-			Clients.All.processJoin();
+			foreach (var player in Players) {
+				Clients.All.processJoin(player.Name);
+			}
+			
 		}
 	}
 }

@@ -48,8 +48,13 @@
                         + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
                 };
 
+                
+                player.client.prepJoin = function () {
+                    $('#lobby').empty();
+                };
+
                 player.client.processJoin = function (name) {
-                    console.log("player joining...");
+                    console.log("player joining (" + name + ")...");
 
                     //Encode player name
                     var encodedName = $('<div />').text(name).html();
@@ -57,8 +62,6 @@
                     //Append to lobby list
                     $('#lobby').append('<li>' + encodedName + '</li>');
                 };
-
-
 
                 // Get the user name and store it to prepend to messages.
                 $('#displayname').val(prompt('Enter your name:', ''));
