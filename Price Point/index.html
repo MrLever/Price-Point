@@ -33,7 +33,7 @@
 
         <script type="text/javascript">
             $(function () {
-                // Declare a proxy to reference the hub.
+                //Connect to the hub
                 var player = $.connection.pricePointHub;
 
                 // Create a function that the hub can call to broadcast messages.
@@ -49,20 +49,29 @@
                 };
 
                 player.client.processJoin = function (name) {
+                    console.log("player joining...");
+
                     //Encode player name
                     var encodedName = $('<div />').text(name).html();
-                    console.log("player joining...");
+
                     //Append to lobby list
                     $('#lobby').append('<li>' + encodedName + '</li>');
                 };
 
+
+
                 // Get the user name and store it to prepend to messages.
                 $('#displayname').val(prompt('Enter your name:', ''));
-                //player.server.processJoin($('#displayname'));
+
                 // Set initial focus to message input box.
                 $('#message').focus();
                 // Start the connection.
                 $.connection.hub.start().done(function () {
+                    console.log("Connection open...");
+
+                    // Broadcast join event to all clients
+                    player.server.join($('#displayname').val());
+
                     $('#sendmessage').click(function () {
                         // Call the Send method on the hub.
                         player.server.send($('#displayname').val(), $('#message').val());

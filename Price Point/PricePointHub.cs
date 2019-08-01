@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
+using Newtonsoft.Json;
 
 namespace Price_Point
 {
 	public class PricePointHub : Hub
 	{
+		private static List<Client> Players = new List<Client>(); 
+		public PricePointHub() : base() {
+
+		}
+
 		public void Hello() {
 			Clients.All.hello();
 		}
@@ -17,7 +23,8 @@ namespace Price_Point
 		}
 
 		public void Join(string name) {
-			Clients.All.processJoin(name);
+			Players.Add(new Client(name));
+			Clients.All.processJoin();
 		}
 	}
 }
