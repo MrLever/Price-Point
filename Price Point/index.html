@@ -67,10 +67,8 @@
                         // Call the Send method on the hub.
                         player.server.send($('#displayname').val(), $('#message').val());
 
-                        window.setInterval(function() {
-                            var elem = document.getElementById('log');
-                            elem.scrollTop = elem.scrollHeight;
-                        }, 5000);
+                        var elem = document.getElementById('log');
+                        elem.scrollTop = elem.scrollHeight;
 
                         // Clear text box and reset focus for next comment.
                         $('#message').val('').focus();
