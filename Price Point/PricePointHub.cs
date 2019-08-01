@@ -21,6 +21,17 @@ namespace Price_Point {
 			Clients.All.broadcastMessage(name, message);
 		}
 
+		public void StartGame() {
+			Clients.All.startGame();
+
+			StartRound();
+		}
+
+		public void StartRound() {
+			var priceFixer = Game.Players[Game.CurrentPriceFixer].Name;
+			Clients.All.selectFixer(priceFixer);
+		}
+
 		public void Join(string name) {
 			Clients.All.prepJoin();
 

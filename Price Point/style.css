@@ -94,3 +94,50 @@ body {
     background: #808080;
     color: #000;
 }
+
+.gameBanner {
+    display: block;
+    height: 25%;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+}
+
+.gameBanner h1 {
+    font-size: 24pt;
+}
+
+
+@media screen (max-width: 700px) {
+    .chat {
+        color: #000000;
+        background: #FFFFFF;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .chatLog {
+        height: 100px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        word-break: break-all;
+
+        font-size: 12pt;
+    }
+
+    .lobbyList {
+        position: absolute;
+        bottom: 139px;
+        right: 0px;
+        height: 150px;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        word-break: break-all;
+        background: #808080;
+        color: #000;
+
+        font-size: 12pt;
+    }
+}

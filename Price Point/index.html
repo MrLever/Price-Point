@@ -4,19 +4,27 @@
         <title>Price Point v0.0.1</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
         <script src="/Scripts/jquery-3.3.1.min.js"></script>
         <script src="/Scripts/jquery.signalR-2.2.2.min.js"></script>
         <script src="signalr/hubs"></script>
     </head>
     <body>
         <div class="titlebar">
-            <h1>PRICE POINT</h1>
+            <h1>Price Point</h1>
         </div>
         <div class="content">
             <div class="gameBanner">
-
+                <h1 id="gameStatus">The Game Has Not Started :(</h1>
+                <input type="button" id="startGame" value="Start Game" />
             </div>
-            <div class="chatUI">
+            <div class="UI">
+                <div id="fixerControls">
+                    These are the fixer controls
+                </div>
+                <div id="bidderControls">
+                    These are the bidder controls
+                </div>
                 <div class="chat">
                     <div class="chatLog" id="log">
                         <ul id="discussion">
