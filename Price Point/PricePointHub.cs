@@ -28,13 +28,38 @@ namespace Price_Point {
 		}
 
 		public void StartRound() {
+			Game.ResetBidStates();
 			var priceFixer = Game.Players[Game.CurrentPriceFixer].Name;
 			Clients.All.selectFixer(priceFixer);
 		}
 
-		public void StartBidding() {
+		public void StartBidding(string itemPrice) {
 			var priceFixer = Game.Players[Game.CurrentPriceFixer].Name;
+			Game.CurrentItemPrice = Convert.ToDecimal(itemPrice);
 			Clients.All.startBidding(priceFixer);
+		}
+
+		public void PostBid(string name, string bid) {
+			//Record bid
+			foreach (var player in Game.Players) {
+				if (player.Name == name) {
+					player.PlaceBid(Convert.ToDecimal(bid));
+					break;
+				}
+			}
+
+			//Check for end of bidding
+			if (Game.BiddingOver()) {
+				EndBidding();
+			}
+		}
+
+		public void EndBidding() {
+			string winner = Game.DecideWinner();
+			Clients.All.endBidding();
+			Clients.All.declareWinner(winner);
+
+			Game.NextTurn();
 		}
 
 		public void Join(string name) {

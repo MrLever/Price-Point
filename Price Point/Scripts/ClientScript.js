@@ -7,9 +7,12 @@
     var fixerActiveControls = document.getElementById('fixerActive');
     var bidderInactiveControls = document.getElementById('bidderInactive');
     var fixerInactiveControls = document.getElementById('fixerInactive');
+    var winReadout = document.getElementById('winReadout');
 
+    console.log("Hiding shit...");
     fixerControls.hidden = true;
     bidderControls.hidden = true;
+    winReadout.style.display = 'none';
 
     // Connect to the hub
     var player = $.connection.pricePointHub;
@@ -38,6 +41,7 @@
 
         //Append to lobby list
         $('#lobby').append('<li>' + encodedName + '</li>');
+        winReadout.hidden = true;
     };
 
     player.client.startGame = function () {
@@ -62,6 +66,8 @@
             bidderActiveControls.hidden = true;
             bidderInactiveControls.hidden = false;
         }
+
+        winReadout.style.display = 'none';
     }
 
     player.client.startBidding = function (name) {
@@ -73,6 +79,18 @@
             bidderActiveControls.hidden = false;
             bidderInactiveControls.hidden = true;
         }
+    }
+
+    player.client.endBidding = function () {
+        fixerControls.hidden = true;
+        bidderControls.hidden = true;
+    }
+
+    player.client.declareWinner = function (winners) {
+        winReadout.hidden = false;
+        var winnersDiv = document.getElementById('winners');
+        winnersDiv.innerHTML = winners;
+        winReadout.style.display = 'block';
     }
 
     // Get the user name and store it to prepend to messages.
@@ -106,7 +124,11 @@
         });
 
         $('#endFixerTurn').click(function () {
-            player.server.startBidding();
+            player.server.startBidding($('#itemPrice').val());
+        });
+
+        $('#bidButton').click(function () {
+            player.server.postBid($('#displayname').val(), $('#bidValue').val());
         });
     });
 });
