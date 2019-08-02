@@ -10,6 +10,7 @@ namespace Price_Point {
 		public decimal CurrentItemPrice { get; set; }
 		public bool GameStarted { get; set; }
 
+		
 		public PricePointGame() {
 			Players = new List<Client>();
 			CurrentPriceFixer = 0;

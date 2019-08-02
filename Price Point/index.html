@@ -18,7 +18,7 @@
                 <h1 id="gameStatus">The Game Has Not Started :(</h1>
                 <input type="button" id="startGame" value="Start Game" />
             </div>
-            <div class="forSaleBox">
+            <div class="forSaleBox" id="forSaleBox">
                 <h2 id="itemTitle">Item Title</h2>
             </div>
             <div class="UI">
@@ -26,8 +26,9 @@
                     <div id="fixerActive">
                         <h3>You are the Price Fixer!</h3>
                         <h4>Upload an image and provide it's price.</h4>
-                        <input type="button" id="uploadButton" value="Upload Image" />
-                        <input type="text" id="itemPrice" />
+                        URL: <input type="text" id="itemURL" /> <br/>
+                        Item Name: <input type="text" id="itemName" /> <br/>
+                        Item Price: <input type="text" id="itemPrice" /> <br/>
                         <input type="button" id="endFixerTurn" value="Done" />
                     </div>
                     <div id="fixerInactive">

@@ -70,6 +70,14 @@
         winReadout.style.display = 'none';
     }
 
+    player.client.receiveItemForSale = function (url, itemTitle) {
+        var box = document.getElementById('forSaleBox');
+        box.style.background = "url('" + url + "')";
+
+        var title = document.getElementById('itemTitle');
+        title.innerHTML = itemTitle;
+    }
+
     player.client.startBidding = function (name) {
         if ($('#displayname').val() == name) {
             fixerActiveControls.hidden = true;
@@ -124,6 +132,11 @@
         });
 
         $('#endFixerTurn').click(function () {
+            player.server.postItemForSale(
+                $('#itemURL').val(),
+                $('#itemName').val()
+            );
+
             player.server.startBidding($('#itemPrice').val());
         });
 

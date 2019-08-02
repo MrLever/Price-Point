@@ -33,6 +33,10 @@ namespace Price_Point {
 			Clients.All.selectFixer(priceFixer);
 		}
 
+		public void PostItemForSale(string url, string itemName) {
+			Clients.All.receiveItemForSale(url, itemName);
+		}
+
 		public void StartBidding(string itemPrice) {
 			var priceFixer = Game.Players[Game.CurrentPriceFixer].Name;
 			Game.CurrentItemPrice = Convert.ToDecimal(itemPrice);

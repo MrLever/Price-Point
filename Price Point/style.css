@@ -112,6 +112,8 @@ body {
     margin: auto;
     height: 55vh;
     background: #808080;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
 }
 
 #bidderControls {
