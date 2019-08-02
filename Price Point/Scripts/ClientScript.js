@@ -130,5 +130,9 @@
         $('#bidButton').click(function () {
             player.server.postBid($('#displayname').val(), $('#bidValue').val());
         });
+
+        $('#nextRound').click(function () {
+            player.server.startRound();
+        });
     });
 });

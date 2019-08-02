@@ -23,6 +23,7 @@ namespace Price_Point {
 		public void ResetBidStates() {
 			foreach (var player in Players) {
 				player.BidPlaced = false;
+				player.Bid = decimal.MaxValue;
 			}
 		}
 
