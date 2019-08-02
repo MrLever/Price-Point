@@ -23,14 +23,27 @@
             </div>
             <div class="UI">
                 <div id="fixerControls">
-                    <h3>You are the Price Fixer!</h3>
-                    <h4>Upload an image and provide it's price.</h4>
-                    <input type="button" id="uploadButton" value="Upload Image" />
-                    <input type="text" id="itemPrice" />
-                    <input type="button" id="endFixerTurn" value="Done" />
+                    <div id="fixerActive">
+                        <h3>You are the Price Fixer!</h3>
+                        <h4>Upload an image and provide it's price.</h4>
+                        <input type="button" id="uploadButton" value="Upload Image" />
+                        <input type="text" id="itemPrice" />
+                        <input type="button" id="endFixerTurn" value="Done" />
+                    </div>
+                    <div id="fixerInactive">
+                        <h3>You are the Price Fixer!</h3> <br/>
+                        But your turn is over :(. Wait for your friends to place their bids.
+                    </div>
                 </div>
                 <div id="bidderControls">
-                    These are the bidder controls
+                    <div id="bidderActive">
+                        <h3>It's time to place your bid!</h3>
+                        <input type="text" id="bidValue" />
+                        <input type="button" id="bidButton" value="Submit Bid" />
+                    </div>
+                    <div id="bidderInactive">
+                        You are waiting for the Price Fixer. Try yelling at them.
+                    </div>
                 </div>
                 <div class="chat">
                     <div class="chatLog" id="log">

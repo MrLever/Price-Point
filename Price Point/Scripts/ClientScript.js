@@ -3,6 +3,10 @@
     // Get handles for the controls
     var fixerControls = document.getElementById('fixerControls');
     var bidderControls = document.getElementById('bidderControls');
+    var bidderActiveControls = document.getElementById('bidderActive');
+    var fixerActiveControls = document.getElementById('fixerActive');
+    var bidderInactiveControls = document.getElementById('bidderInactive');
+    var fixerInactiveControls = document.getElementById('fixerInactive');
 
     fixerControls.hidden = true;
     bidderControls.hidden = true;
@@ -48,13 +52,29 @@
 
         if ($('#displayname').val() == name) {
             fixerControls.hidden = false;
+            fixerActiveControls.hidden = false;
+            fixerInactiveControls.hidden = true;
             bidderControls.hidden = true;
         }
         else {
             fixerControls.hidden = true;
             bidderControls.hidden = false;
+            bidderActiveControls.hidden = true;
+            bidderInactiveControls.hidden = false;
         }
     }
+
+    player.client.startBidding = function (name) {
+        if ($('#displayname').val() == name) {
+            fixerActiveControls.hidden = true;
+            fixerInactiveControls.hidden = false;
+        }
+        else {
+            bidderActiveControls.hidden = false;
+            bidderInactiveControls.hidden = true;
+        }
+    }
+
     // Get the user name and store it to prepend to messages.
     $('#displayname').val(prompt('Enter your name:', ''));
 
@@ -83,6 +103,10 @@
         $('#startGame').click(function () {
             // Call the Send method on the hub.
             player.server.startGame();
+        });
+
+        $('#endFixerTurn').click(function () {
+            player.server.startBidding();
         });
     });
 });

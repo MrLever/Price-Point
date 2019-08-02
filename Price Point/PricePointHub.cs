@@ -32,6 +32,11 @@ namespace Price_Point {
 			Clients.All.selectFixer(priceFixer);
 		}
 
+		public void StartBidding() {
+			var priceFixer = Game.Players[Game.CurrentPriceFixer].Name;
+			Clients.All.startBidding(priceFixer);
+		}
+
 		public void Join(string name) {
 			Clients.All.prepJoin();
 

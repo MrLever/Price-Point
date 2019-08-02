@@ -114,6 +114,21 @@ body {
     background: #808080;
 }
 
+#bidderControls {
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+}
+
+#bidderControls h3 {
+    font-size: 14pt;
+    padding: 5px;
+}
+
+#bidderControls h4 {
+    font-size: 12pt;
+    padding: 5px;
+}
+
 #fixerControls {
     color: #ffffff;
     font-family: 'Oswald', sans-serif;
