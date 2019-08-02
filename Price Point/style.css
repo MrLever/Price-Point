@@ -114,6 +114,7 @@ body {
     background: #808080;
     background-repeat: no-repeat !important;
     background-position: center !important;
+    background-size: contain !important;
 }
 
 #bidderControls {
@@ -172,7 +173,7 @@ body {
     font-size: 16pt;
 }
 
-@media screen (max-width: 700px) {
+@media (max-width: 700px) {
     .chat {
         color: #000000;
         background: #FFFFFF;
@@ -187,22 +188,15 @@ body {
         overflow-x: hidden;
         overflow-y: scroll;
         word-break: break-all;
-
         font-size: 12pt;
     }
 
     .lobbyList {
-        position: absolute;
-        bottom: 139px;
-        right: 0px;
-        height: 150px;
-        width: 100%;
-        overflow-x: hidden;
-        overflow-y: scroll;
-        word-break: break-all;
-        background: #808080;
-        color: #000;
+        display: none;
+    }
 
-        font-size: 12pt;
+    .forSaleBox {
+        display: block;
+        width: 100%;
     }
 }
